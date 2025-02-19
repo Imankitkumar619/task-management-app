@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`bg-slate-100 ${inter.className}`}>
         <StoreProvider>
-          <main className="container">{children}</main>
+          <main style={{ width: "100vw" }}>{children}</main>
         </StoreProvider>
       </body>
     </html>

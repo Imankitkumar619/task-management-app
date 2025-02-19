@@ -3,7 +3,7 @@
 This is a task management application built with Next.js, TypeScript, Tailwind CSS, and Mobx State Tree. It allows users to create, view, update, and delete tasks. The application utilizes local storage for data persistence.
 
 ## Features
-
+-User Login (including create account & Login)
 - View a list of tasks
 - Add a new task
 - Edit an existing task
@@ -23,7 +23,7 @@ To run the application locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Mozahidul01/task-management-app.git
+   git clone <repo url>
    ```
 
 2. Navigate to the project directory:
@@ -58,6 +58,9 @@ The project's folder structure is as follows:
     - page.tsx
   - components
     - ui
+    - Navbar.tsx
+    - login.tsx
+    - Register.tsx
     - AddTask.tsx
     - EditTask.tsx
     - Task.tsx
@@ -82,7 +85,10 @@ Explanation:
     - `page.tsx`: The main page component representing the home or main view of the application.
   - `components`: Contains reusable components used across different pages or layouts.
     - `ui`: Contains reusable UI components that are not specific to the task management functionality. These components can be used throughout the application.
+    - `Navbar.tsx`: Component responsible for rendering the navigation bar. It provides links to different sections of the application, such as the task list, login, and registration pages. The navigation bar ensures easy access to various features and improves the overall user experience.
     - `AddTask.tsx`: Component responsible for adding a new task.
+    - `login.tsx` : This component is essential for securing access to the application by ensuring that only authenticated users can proceed.
+    - `register.tsx` : Component responsible for user registration. It allows new users to create an account by providing necessary information such as username, email, and password. This component ensures that new users can register and gain access to the application's features.   
     - `EditTask.tsx`: Component responsible for editing an existing task.
     - `Task.tsx`: Component responsible for displaying a single task.
     - `TaskFilter.tsx`: Component responsible for filtering tasks based on their status.
@@ -102,11 +108,5 @@ Explanation:
 ## Persistence
 
 The application persists task data using local storage. Tasks are stored under the key "taskStore" as a JSON string.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
 
 Please let me know if you need any further information or assistance.

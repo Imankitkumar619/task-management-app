@@ -1,17 +1,35 @@
-import TaskList from "@/components/TaskList";
+"use client"
+import React from "react";
+import TaskList from "../app/components/TaskList";
+import Navbar from "../app/components/Navbar";
+import Login from "./components/login";
+import { AuthProvider, useAuth } from "@/context/AuthContext";
 
-const Home = async ({}) => {
+const Home = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
-    <div className="h-screen">
-      <h1 className="text-2xl sm:text-4xl font-black tracking-wide text-center pt-6 pb-10 sm:pb-24">
-        Welcome to Task Manager
-      </h1>
-
-      <div className="grid place-items-center">
-        <TaskList />
-      </div>
+    <div style={{ width: "100%" }}>
+      {isAuthenticated ? (
+        <div>
+          <div style={{ width: "100%" }}>
+            <Navbar />
+          </div>
+          <div style={{ top: "70%", padding: "20px", marginTop: "20px" }}>
+            <TaskList />
+          </div>
+        </div>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 };
 
-export default Home;
+const App = () => (
+  <AuthProvider>
+    <Home />
+  </AuthProvider>
+);
+
+export default App;

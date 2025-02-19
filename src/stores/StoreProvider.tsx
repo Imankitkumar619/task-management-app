@@ -3,6 +3,7 @@
 import { createContext, useContext } from "react";
 import { onSnapshot, getSnapshot } from "mobx-state-tree";
 import { taskStore, TaskStore, updateTaskStoreWithSnapshot } from "./TaskStore";
+import { AuthProvider } from "@/context/AuthContext";
 
 const StoreContext = createContext({ taskStore });
 
@@ -25,7 +26,10 @@ export const StoreProvider = ({ children }: any) => {
   };
 
   return (
-    <StoreContext.Provider value={stores}>{children}</StoreContext.Provider>
+    <AuthProvider>
+          <StoreContext.Provider value={stores}>{children}</StoreContext.Provider>
+
+    </AuthProvider>
   );
 };
 
